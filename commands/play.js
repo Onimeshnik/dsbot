@@ -8,7 +8,10 @@ exports.run = async (client, message, args, ops) => {
 
     let validate = await ytdl.validateURL(args[0]);
 
-    if (!validate) return message.channel.send(`Укажите действующую ссылку.`)
+    if (!validate) {
+        let commandFile = require(`./search.js`);
+        return commandFile.run(client, message, args, ops);
+    }
 
     let info = await ytdl.getInfo(args[0]);
 
@@ -55,7 +58,7 @@ function finish(client, ops, dispatcher){
     } else {
         ops.active.delete(dispatcher.guildID);
 
-        let vc = client.guilds.get(dispatcher.guildID).me.voice.channel;
+        let vc = client.guilds.cache.get(dispatcher.guildID).me.voice.channel;
         if (vc) vc.leave();
     }
 }
