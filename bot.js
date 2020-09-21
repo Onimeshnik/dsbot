@@ -50,7 +50,7 @@ client.on('messageDelete', async message => {
         type: 'MESSAGE_DELETE',
   });
 
-  const LChannel = client.channels.cache.get('756773612505268265')
+  const LChannel = client.channels.cache.get('757617574296027227')
     const deletionLog = fetchedLogs.entries.first();
 
     if (!deletionLog) return console.log(`Сообщение ${message.author.tag} было удалено, но в журнале ничего не найдено.`);
@@ -104,7 +104,7 @@ client.on("messageUpdate", function(oldMessage, newMessage, message){
   .addField(`После`, newMessage.content, true)
   .setTimestamp()
 
-  const LChannel = client.channels.cache.get('756773612505268265')
+  const LChannel = client.channels.cache.get('757617574296027227')
 
   LChannel.send(LCMEmbed);
 });
