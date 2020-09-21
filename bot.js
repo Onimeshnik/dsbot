@@ -84,7 +84,7 @@ client.on('messageDelete', async message => {
     else if(target.id === message.author.id) {
     console.log(`Сообщение ${message.author.tag} удалено ${executor.tag}. Сообщение: ${message.content}`);
     LChannel.send(LDEmbed);
-    }	else {
+    }	else if(message.author.tag === executor.tag){
     console.log(`Сообщение ${message.author.tag} удалено им же.`);
     LChannel.send(LDEmbed2);
     }
