@@ -1,4 +1,6 @@
 exports.run = (client, message, args, ops) => {
+
+    let fetched = ops.active.get(message.guild.id);
     
     if(!message.member.voice.channel) return message.channel.send(`Вы должны быть в голосовом канале.`);
 
