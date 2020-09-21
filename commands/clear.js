@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
         .then(messages => {
         message.channel.bulkDelete(messages);
         messagesDeleted = messages.array().length; // Кол-во удаленных сообщений
-        const LChannel = client.channels.cache.get('756773612505268265')
+        const LChannel = client.channels.cache.get('757617574296027227')
   
         const LCEmbed = new Discord.MessageEmbed()
         .setColor('#e92a16')
