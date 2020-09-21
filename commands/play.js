@@ -25,19 +25,34 @@ exports.run = async (client, message, args, ops) => {
         songTitle: info.videoDetails.title,
         requester: message.author.tag,
         url: args[0],
-        announceChannel: message.channel.id
+        announceChannel: message.channel.id,
+        image: info.thumbnail_url,
     });
+
+    const AQEmbed = new Discord.MessageEmbed()
+        .setColor('#e92a16')
+        .setTitle(`Добавлено в очередь: ${info.videoDetails.title} | Добавил: ${message.author.id}`)
+        .setAuthor('BLogs', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
+        .setTimestamp()
 
     if (!data.dispatcher) play(client, ops, data);
     else {
-        message.channel.send(`Добавлено в очередь: ${info.videoDetails.title} | Добавил: ${message.author.id}`);
+        message.channel.send(AQEmbed);
     }
 
     ops.active.set(message.guild.id, data);
 }
 
 async function play(client, ops, data){
-    client.channels.cache.get(data.queue[0].announceChannel).send(`Сейчас играет: ${data.queue[0].songTitle} | Добавил: ${data.queue[0].requester}`);
+
+    const NPEmbed = new Discord.MessageEmbed()
+    .setColor('#e92a16')
+    .setTitle(`Сейчас играет: ${data.queue[0].songTitle} | Добавил: ${data.queue[0].requester}`)
+    .setAuthor('BLogs', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
+    .setImage(data.queue[0].image)
+    .setTimestamp()
+
+    client.channels.cache.get(data.queue[0].announceChannel).send(NPEmbed);
         
     data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, {filter: `audioonly`}));
     data.dispatcher.guildID = data.guildID;
