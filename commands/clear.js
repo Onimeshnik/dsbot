@@ -16,12 +16,12 @@ exports.run = (client, message, args) => {
         .then(messages => {
         message.channel.bulkDelete(messages);
         messagesDeleted = messages.array().length; // Кол-во удаленных сообщений
-        const LChannel = client.channels.cache.get('757617574296027227')
+        const LChannel = client.channels.cache.get('756773612505268265')
   
         const LCEmbed = new Discord.MessageEmbed()
         .setColor('#e92a16')
-        .setTitle(`${message.author.tag} запустил очистку <#${message.channel.id}>`)
-        .setAuthor('BLogs', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
+        .setTitle(`${message.author.tag} запустил очистку в #${message.channel.name}`)
+        .setAuthor('Логи', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
         .setDescription(`Удаление завершено, всего удалено: ${messagesDeleted}`)
         .setTimestamp()
   
