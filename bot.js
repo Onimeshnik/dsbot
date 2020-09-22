@@ -50,7 +50,7 @@ client.on('messageDelete', async message => {
         type: 'MESSAGE_DELETE',
   });
 
-  const LChannel = client.channels.cache.get('757617574296027227')
+  const LChannel = client.channels.cache.get('756773612505268265')
     const deletionLog = fetchedLogs.entries.first();
 
     if (!deletionLog) return console.log(`Сообщение ${message.author.tag} было удалено, но в журнале ничего не найдено.`);
@@ -59,22 +59,22 @@ client.on('messageDelete', async message => {
   
   const LDEmbed = new Discord.MessageEmbed()
     .setColor('#e92a16')
-    .setTitle(`${executor.tag} удалил сообщение ${message.author.tag}`)
-    .setAuthor('Logs', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
+    .setTitle(`${executor.tag} удалил сообщение ${message.author.tag} в #${message.channel.name}`)
+    .setAuthor('Логи', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
     .setDescription(message.content)
     .setTimestamp()
 
   const LDEmbed2 = new Discord.MessageEmbed()
     .setColor('#e92a16')
-    .setTitle(`${executor.tag} удалил своё сообщение.`)
-    .setAuthor('Logs', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
+    .setTitle(`${executor.tag} удалил своё сообщение в #${message.channel.name}.`)
+    .setAuthor('Логи', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
     .setDescription(message.content)
     .setTimestamp()
 
   const LDBEmbed = new Discord.MessageEmbed()
     .setColor('#e92a16')
-    .setTitle(`${executor.tag} удалил сообщение бота.`)
-    .setAuthor('Logs', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
+    .setTitle(`${executor.tag} удалил сообщение бота в #${message.channel.name}.`)
+    .setAuthor('Логи', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
     .setDescription(message.content)
     .setTimestamp()
 
@@ -98,13 +98,13 @@ client.on("messageUpdate", function(oldMessage, newMessage, message){
 
   const LCMEmbed = new Discord.MessageEmbed()
   .setColor('#e92a16')
-  .setTitle(`${oldMessage.author.tag} удалил своё сообщение.`)
-  .setAuthor('Logs', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
+  .setTitle(`${oldMessage.author.tag} изменил своё сообщение.`)
+  .setAuthor('Логи', 'https://leonardo.osnova.io/cc983cd9-82f4-8757-5468-285468bc7bf5/-/resize/900/')
   .addField(`До`, oldMessage.content, true)
   .addField(`После`, newMessage.content, true)
   .setTimestamp()
 
-  const LChannel = client.channels.cache.get('757617574296027227')
+  const LChannel = client.channels.cache.get('756773612505268265')
 
   LChannel.send(LCMEmbed);
 });
