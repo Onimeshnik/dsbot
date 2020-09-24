@@ -39,7 +39,7 @@ client.on(`ready`, () =>
     console.log(`Готов!`)
 );
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('channelID').send("Welcome to the club ${member.user.name}"); 
+  member.guild.channels.cache.get('758641437494870056').send(`Welcome to the club ` + member.user.username + `!`);
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Логи
 
