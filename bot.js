@@ -38,8 +38,7 @@ client.on(`message`, message => {
 client.on(`ready`, () =>
     console.log(`Готов!`)
 );
-
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
     member.guild.channels.get('channelID').send("Welcome to the club ${member.user.name}"); 
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Логи
