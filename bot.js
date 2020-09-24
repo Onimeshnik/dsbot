@@ -40,7 +40,7 @@ client.on(`ready`, () =>
 );
 
 bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('channelID').send("Welcome"); 
+    member.guild.channels.get('channelID').send("Welcome to the club ${member.user.name}"); 
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Логи
 
